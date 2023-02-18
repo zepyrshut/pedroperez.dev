@@ -5,7 +5,6 @@ author: Pedro Pérez
 tags: ["tag1-example", "tag2-example"]
 categories: ["machine learning"]
 description: "lorem"
-gitinfo: "xxx"
 draft: true
 ---
 
