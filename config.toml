@@ -1,0 +1,59 @@
+baseURL = 'https://pedroperez.dev/'
+languageCode = 'es-ES'
+title = 'PEDROPEREZ.DEV'
+theme = 'hello-friend-ng'
+paginate = 10
+defaultContentLanguage = 'es'
+enableGitInfo = true
+
+[taxonomies]
+    category = "blog"
+    tag      = "tags"
+    series   = "series"
+
+[params]
+  dateFull   = true
+  dateLong   = true
+  dateMedium = true
+  dateShort  = true
+  timeFull   = true
+  timeMedium = true
+  timeShort  = true
+  enableThemeToggle = true
+  gitUrl = "https://github.com/zepyrhut/blog-pedroperez-dev"
+  homeSubtitle = "Transformando cafeína en bloques de código"
+  disableReadOtherPosts = false
+  enableSharingButtons = false
+
+[params.logo]
+  logoText = "$ ~/pedroperez.dev/home"
+  logoHomeLink = "/"
+
+[[menu.main]]
+  identifier = "blog"
+  name       = "Blog"
+  url        = "/posts"
+
+[[menu.main]]
+  identifier = "about"
+  name       = "Sobre mí"
+  url        = "/about"
+
+[[params.social]]
+  name = "github"
+  url  = "https://github.com/zepyrshut"
+
+[author]
+  name = "Pedro Pérez"
+
+[params.footer]
+  topText = [
+    "Hecho con ❤️ y Hugo / Hello Friend NG",
+  ]
+  bottomText = [
+
+    "CC 2023 | Pedro Pérez",
+  ]
+
+[permalinks]
+  posts = "/posts/:year/:month/:title/"
