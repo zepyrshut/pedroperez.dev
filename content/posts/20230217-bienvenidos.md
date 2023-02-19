@@ -1,34 +1,57 @@
 ---
-title: Bienvenidos al blog de Pedro
+title: Bienvenidos al blog
 date: 2023-02-17
 author: Pedro Pérez
-tags: ["tag1", "tag2"]
-categories: ["machine learning"]
-description: "lorem"
+tags: ["bienvenida", "ssg", "generador de sitios estáticos", "hugo"]
+categories: ["Otros"]
+description: "La bienvenida al blog, qué es un SSG y Hugo."
 draft: false
 ---
 
-# Preámbulo
+### Preámbulo
 
-Tal día como hoy, en el pie de la publicación
+Este es otro de los numerosos intentos que llevo a cabo para desarrollar
+y llevar un blog sobre el desarrollo tecnológico y algunas de mis
+aficiones.
 
+### ¿Por qué otro?
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies tortor interdum blandit suscipit. Sed in nulla a tellus sollicitudin molestie nec sed metus. Ut at luctus nulla, a tincidunt nibh. Nam sagittis accumsan magna vel mattis. Morbi lobortis arcu massa, at iaculis ante vulputate dapibus. Nam posuere et nisl a dictum. Curabitur eget dictum nunc. Aenean elementum, quam vitae lobortis maximus, orci dolor tincidunt tellus, id aliquet odio quam ut orci. Nam vitae tortor et orci viverra blandit sit amet tincidunt dolor. Etiam eget dui leo. Etiam in nunc at turpis blandit consectetur sit amet eu magna. Nullam et lacus vel felis pharetra feugiat. Maecenas tempus vel urna in egestas. Praesent ex libero, tincidunt sed nunc ac, cursus sagittis metus. Cras ultricies, nibh vitae feugiat varius, massa diam scelerisque sapien, quis euismod odio quam vitae ex.
+La idea de este blog es reemplazar el actual, hecho en lenguaje de
+marcas puro acompañado del _framework_ [UIKit](https://getuikit.com/).
 
-Etiam sed pretium sem. Fusce ac arcu urna. Maecenas id dui convallis, iaculis enim vel, vestibulum libero. Nullam ut massa ante. Sed et metus eget nisl viverra tempus. Phasellus in tempor eros, eu rhoncus augue. Praesent rhoncus ex metus, et convallis nibh dignissim sed. Nam quis mollis sem. Nulla pellentesque interdum odio. Vestibulum vulputate est vitae imperdiet convallis.
+El hecho de llevar un sitio web sin un gestor que lo respalde se hacía
+muy complicado mantener todas y cada una de las páginas, ya que un
+cambio en una, implicaba hacer el mismo cambio en todas, precisando así
+la necesidad de usar un gestor de contenidos. Las opciones eran el
+archiconocido _WordPress_ o buscar otra alternativa.
 
-Mauris vel tortor vel dui posuere consequat ut non purus. Pellentesque quis auctor neque. Curabitur porta lorem et mollis sagittis. Nullam tincidunt nibh in nisl cursus hendrerit. Mauris sollicitudin ipsum eu dui fringilla, in porttitor urna elementum. Fusce hendrerit finibus tellus, ut faucibus nibh dapibus eu. Sed ac odio non erat fermentum ornare. Donec commodo quam eget sem vulputate ultrices. Nam lorem massa, cursus ac iaculis nec, condimentum sed lacus. Morbi iaculis vehicula pulvinar. Cras varius lacus hendrerit accumsan posuere. Nullam vitae aliquam nunc.
+El elegido para esta ocasión es Hugo. Se define como un _framework_ de
+generación de sitios estáticos.
 
-Vestibulum aliquet odio eu lorem consectetur feugiat. Proin magna metus, convallis at consequat at, mollis ac nunc. Phasellus fermentum nisi venenatis accumsan finibus. Curabitur auctor sem vel tempor eleifend. Praesent sit amet nisl nisi. Curabitur pulvinar mi faucibus sollicitudin ornare. Nulla dignissim tortor in semper semper. In laoreet finibus enim, non sodales urna iaculis id. Morbi sollicitudin sem sed elit fermentum hendrerit. Etiam congue eu dui nec ornare. Proin sollicitudin nisi nec sem ultrices, et commodo nulla volutpat. Morbi congue maximus tempus. Mauris sit amet consequat est. Nunc lorem lectus, facilisis at erat ut, viverra eleifend ipsum.
+### ¿Qué es un SSG?
 
-Cras in ante eu mauris tempor suscipit ac in sem. Vestibulum placerat risus eu neque varius eleifend ac a purus. Mauris nulla nibh, malesuada vitae turpis sit amet, suscipit varius erat. Etiam suscipit tellus sed facilisis ultricies. Nam tincidunt cursus nisi, et aliquam mi rutrum eu. Aliquam facilisis urna eu mi efficitur, non convallis ante rhoncus. In mattis vulputate risus, vitae rutrum urna elementum at. Phasellus in mauris sem. Nulla vel bibendum quam, eleifend iaculis tortor. Nulla efficitur in arcu a pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin nec dictum est, vitae blandit magna. Sed malesuada rutrum neque at fringilla. Aenean dapibus libero vel risus fringilla ornare. Aenean lacinia quis ante quis porttitor.
+Un generador de sitios estáticos, también abreviado como SSG, acrónimo
+del inglés _Static Site Generator_ es un concpeto de desarrollo de
+sitios web donde se aloja al servidor una serie de páginas generadas en
+HTML, CSS y JS desde un entorno de desarrollo.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies tortor interdum blandit suscipit. Sed in nulla a tellus sollicitudin molestie nec sed metus. Ut at luctus nulla, a tincidunt nibh. Nam sagittis accumsan magna vel mattis. Morbi lobortis arcu massa, at iaculis ante vulputate dapibus. Nam posuere et nisl a dictum. Curabitur eget dictum nunc. Aenean elementum, quam vitae lobortis maximus, orci dolor tincidunt tellus, id aliquet odio quam ut orci. Nam vitae tortor et orci viverra blandit sit amet tincidunt dolor. Etiam eget dui leo. Etiam in nunc at turpis blandit consectetur sit amet eu magna. Nullam et lacus vel felis pharetra feugiat. Maecenas tempus vel urna in egestas. Praesent ex libero, tincidunt sed nunc ac, cursus sagittis metus. Cras ultricies, nibh vitae feugiat varius, massa diam scelerisque sapien, quis euismod odio quam vitae ex.
+En otras palabras, en
+lugar de escribir todo el código fuente, el autor sólo se tiene que
+preocupar de redactar el contenido, y dado una serie de _scripts_ se
+generan los ficheros en lenguaje web.
 
-Etiam sed pretium sem. Fusce ac arcu urna. Maecenas id dui convallis, iaculis enim vel, vestibulum libero. Nullam ut massa ante. Sed et metus eget nisl viverra tempus. Phasellus in tempor eros, eu rhoncus augue. Praesent rhoncus ex metus, et convallis nibh dignissim sed. Nam quis mollis sem. Nulla pellentesque interdum odio. Vestibulum vulputate est vitae imperdiet convallis.
+En este caso del blog, como autor sólo me tengo que preocupar de
+redactar contenido en formato _Markdown_ y mediante Hugo se generan
+todos los ficheros en lenguaje web (HTML, CSS y JS) listos para subirse
+a un servidor.
 
-Mauris vel tortor vel dui posuere consequat ut non purus. Pellentesque quis auctor neque. Curabitur porta lorem et mollis sagittis. Nullam tincidunt nibh in nisl cursus hendrerit. Mauris sollicitudin ipsum eu dui fringilla, in porttitor urna elementum. Fusce hendrerit finibus tellus, ut faucibus nibh dapibus eu. Sed ac odio non erat fermentum ornare. Donec commodo quam eget sem vulputate ultrices. Nam lorem massa, cursus ac iaculis nec, condimentum sed lacus. Morbi iaculis vehicula pulvinar. Cras varius lacus hendrerit accumsan posuere. Nullam vitae aliquam nunc.
+Sin embargo, tiene una diferencia importante respecto a los CMS y es
+que precisa de un perfil más técnico para llevar a cabo todas esas
+tareas, pues implica tener conocimientos de desarollo web para la
+creación de temas, plantillas o la personalización de ellas.
 
-Vestibulum aliquet odio eu lorem consectetur feugiat. Proin magna metus, convallis at consequat at, mollis ac nunc. Phasellus fermentum nisi venenatis accumsan finibus. Curabitur auctor sem vel tempor eleifend. Praesent sit amet nisl nisi. Curabitur pulvinar mi faucibus sollicitudin ornare. Nulla dignissim tortor in semper semper. In laoreet finibus enim, non sodales urna iaculis id. Morbi sollicitudin sem sed elit fermentum hendrerit. Etiam congue eu dui nec ornare. Proin sollicitudin nisi nec sem ultrices, et commodo nulla volutpat. Morbi congue maximus tempus. Mauris sit amet consequat est. Nunc lorem lectus, facilisis at erat ut, viverra eleifend ipsum.
+### ¿Qué encontrarás en este blog?
 
-Cras in ante eu mauris tempor suscipit ac in sem. Vestibulum placerat risus eu neque varius eleifend ac a purus. Mauris nulla nibh, malesuada vitae turpis sit amet, suscipit varius erat. Etiam suscipit tellus sed facilisis ultricies. Nam tincidunt cursus nisi, et aliquam mi rutrum eu. Aliquam facilisis urna eu mi efficitur, non convallis ante rhoncus. In mattis vulputate risus, vitae rutrum urna elementum at. Phasellus in mauris sem. Nulla vel bibendum quam, eleifend iaculis tortor. Nulla efficitur in arcu a pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin nec dictum est, vitae blandit magna. Sed malesuada rutrum neque at fringilla. Aenean dapibus libero vel risus fringilla ornare. Aenean lacinia quis ante quis porttitor.
+Artículos o consejos del día relacionado con el mundo del desarrollo de
+_software_, en lenguajes como Go, Java o JavaScript y también 
+relacionados con la impresión 3D.
