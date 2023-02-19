@@ -7,7 +7,7 @@ defaultContentLanguage = 'es'
 enableGitInfo = true
 
 [taxonomies]
-    category = "blog"
+    category = "categories"
     tag      = "tags"
     series   = "series"
 
@@ -33,6 +33,11 @@ enableGitInfo = true
   identifier = "blog"
   name       = "Blog"
   url        = "/posts"
+
+[[menu.main]]
+  identifier = "categories"
+  name       = "Categorías"
+  url        = "/categories"
 
 [[menu.main]]
   identifier = "about"
