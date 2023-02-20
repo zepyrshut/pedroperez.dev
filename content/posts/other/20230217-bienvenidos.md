@@ -53,5 +53,5 @@ creación de temas, plantillas o la personalización de ellas.
 ### ¿Qué encontrarás en este blog?
 
 Artículos o consejos del día relacionado con el mundo del desarrollo de
-_software_, en lenguajes como Go, Java o JavaScript y también 
+_software_, en lenguajes como Go, Java o JavaScript y también
 relacionados con la impresión 3D.
