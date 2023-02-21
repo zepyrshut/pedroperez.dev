@@ -62,3 +62,7 @@ enableGitInfo = true
 
 [permalinks]
   posts = "/posts/:year/:month/:title/"
+
+[module]
+[[module.imports]]
+path = "github.com/zepyrshut/hugo-theme-hello-friend-ng"
