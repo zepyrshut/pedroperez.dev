@@ -32,8 +32,8 @@ atributos de los structs mediante etiquetas (_tags_).
 
 ```go
 type Login struct {
-	User     string `json:"username" binding:"required,gt=0,email"`
-	Password  string `json:"password" binding:"required,gt=0"`
+	User     string `json:"username" binding:"required,gt=2,email"`
+	Password  string `json:"password" binding:"required,gt=4"`
 }
 ```
 
@@ -170,13 +170,95 @@ campo vacío.
 
 ### Haciéndolo JSON
 
-El paso final sería devolver los errors en formato JSON para el
-tratamiento en el _frontend_ y mostrar los mensajes correspondientes al
-error dado.
+El paso final sería conseguir mostrarse todos los errores en formato
+JSON para el tratamiento en el _frontend_ y mostrar los mensajes
+correspondientes al error dado.
 
 Para ello se precisa de hacer una función que recoge como parámetro
 el tipo `validator.ValidationErrors` y se itera sobre todos los errores
-recogidos para su transformación en pares de clave/valor.
+recogidos para la creación de un mapa formado por pares de clave/valor
+del tipo `string`.
+
+```go
+func GetValidationMessages(verr validator.ValidationErrors) map[string]string {
+	errs := make(map[string]string)
+	for _, f := range verr {
+		err := f.ActualTag()
+		if f.Param() != "" {
+			err = fmt.Sprintf("%s=%s", err, f.Param())
+		}
+		fmt.Println(err)
+
+		errs[f.Field()] = err
+	}
+	return errs
+}
+```
+
+Analicemos algunos de los métodos de la interfaz `FieldError`:
+
+- `f.ActualTag()`: obtiene la etiqueta de validación en la que no se
+	ha cumplido. Si la etiqueta fue marcada como `required` y se envía el
+	campo vacío, saltará esta misma etiqueta.
+
+	La diferencia entre esta etiqueta y `f.Tag()` es el uso del alias, si
+	existe un alias, se mostrará el alias en lugar de la etiqueta, cosa
+	que no ocurre con `f.ActualTag()`.
+
+- `f.Param()`: obtiene el parámetro que no se ha cumplido en la 
+  validación, esto ocurre con etiquetas parametrizadas como `gt`, `lt`,
+	máximos, mínimos, etc. En caso de que exista, se reemplaza el `err`
+	por una combinación de ambas quedando tal que: `f.ActualTag()=f.Param()`,
+	en texto se mostraría lo siguiente: `gt=0`, o `lt=0`, según lo que
+	corresponda.
+
+	Tanto como `f.ActualTag` y `f.Param()` se guardan como valores en el
+	mapa.
+
+- `f.Field()`: obtiene el atributo en el que no se pasó la validación,
+  como puede ser el nombre, una fecha, un teléfono, etc. Este valor es
+	el que se almacena como clave del mapa.
+
+Con el mapa devuelvo, los errores se mostrarían de la siguiente manera
+para el caso de enviarse los campos vacíos:
+
+```json
+{
+  "errors": {
+    "Password": "required",
+    "User": "required"
+  }
+}
+```
+
+El caso de que los campos no estén vacíos, pero no llegan al mínimo de
+caracteres de longitud:
+
+```json
+{
+  "errors": {
+    "Password": "gt=4",
+    "User": "gt=2"
+  }
+}
+```
+
+### Haciendo un poco de limpieza
+
+Esto queda ya a elección del desarrollador, porque puede ir por gustos
+o preferencias, no hay una solución correcta, si no que hay formas
+diferentes de abordar un problema o una refactorización.
+
+En este caso, el mapa `map[string]string` se puede envolver en un tipo
+específico para el caso y así dando un significado más específico.
+
+```go
+type ValidationMessages map[string]string
+```
+Entonce, lugar de usar el mapa, se puede usar el tipo 
+ValidationMessages.
+
+
 
 ### Fuentes
 
