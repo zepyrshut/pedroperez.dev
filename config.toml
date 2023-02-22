@@ -1,4 +1,5 @@
-baseURL = 'https://pedroperez.dev/'
+baseURL = '/'
+relativeURLs = true
 languageCode = 'es-ES'
 title = 'PEDROPEREZ.DEV'
 theme = 'hello-friend-ng'
