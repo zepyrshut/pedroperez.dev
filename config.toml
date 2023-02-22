@@ -1,5 +1,4 @@
-baseURL = '/'
-relativeURLs = true
+baseURL = '//pedroperez.dev'
 languageCode = 'es-ES'
 title = 'PEDROPEREZ.DEV'
 theme = ['github.com/zepyrshut/hugo-theme-hello-friend-ng']
