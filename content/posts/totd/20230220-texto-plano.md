@@ -44,7 +44,7 @@ misma publicación está siendo escrita en texto plano.
 Esto es texto plano en Markdown, se puede poner en negrita, cursiva o
 tachado empleando caracteres especiales. Una muestra:
 
-- _negrita_
+- **negrita**
 - _cursiva_
 - ~~tachado~~
 ```

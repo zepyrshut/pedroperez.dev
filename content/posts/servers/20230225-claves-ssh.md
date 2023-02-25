@@ -24,11 +24,11 @@ que el uso de contraseñas.
 
 Como se hace una conexión desde un equipo Windows a un servidor Linux,
 está de la forma que se puede hacer mediante _PuTTY_ o _OpenSSH_. En
-todo caso, se debe tener acceso al servidor, sea por contraseña o por
+ambos casos, se debe tener acceso al servidor, sea por contraseña o por
 claves, para poder importar la clave pública.
 
 Es importante conocer las diferencias entre clave pública y clave
-privada y el fichero _authorized_keys_.
+privada y el uso del fichero _authorized_keys_.
 
 **Clave pública:** es la clave que se guarda en el servidor y se
 comparte con el resto de los clientes que se quiera hacer uso del 

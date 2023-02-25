@@ -12,7 +12,7 @@ draft: false
 
 ### Preámbulo
 
-Este artículo da por hecho que el autor conoce el _framework_ Gin-Gonic
+Este artículo da por hecho que el lector conoce el _framework_ Gin-Gonic
 y está habituado al uso, sin embargo necesita un conocimiento mayor
 sobre la validación de datos.
 
@@ -40,10 +40,10 @@ type Login struct {
 En el _struct_ de arriba verás en una de las etiqueta lo siguiente:
 
 ```go
-`binding:required,gt=0,email`
+`binding:required,gt=2,email`
 ```
 
-Esto significa que es un campo obligatorio, debe ser mayor de 0 y debe
+Esto significa que es un campo obligatorio, debe ser mayor de 2 y debe
 ser un correo electrónico. Cualquier elemento que se salga de las
 directrices no será valido.
 
@@ -69,7 +69,7 @@ type error interface {
 
 El funcionamiento es similar a la interfaz `stringer`, donde se puede
 crear distintas implementaciones de esta interfaz añadiendo mensajes
-personalizdos para facilitar al desarrollador o usuario el error que
+personalizados para facilitar al desarrollador o usuario el error que
 está sucediendo.
 
 En otras palabras, cualquier implementación del método `Error()` se
@@ -155,8 +155,8 @@ func GetValidationErrors(err error) {
 
 Se hace uso de la función `As()` del paquete `errors`. Esta función
 tiene dos parámetros, el error que devuelve la función `c.ShouldBindJSON(&someVar)`
-y un puntero a `verr`, el mecanismo de esta función es buscar el primer
-error que coincida con el tipo del puntero, en este caso `ValidationErrors`
+y generador de puntero a `verr`, el mecanismo de esta función es buscar
+el primer error que coincida con el tipo del puntero, en este caso `ValidationErrors`
 y se almacena en `verr`. Finalmente, se imprime por consola los errores
 del tipo.
 
@@ -212,7 +212,7 @@ Analicemos algunos de los métodos de la interfaz `FieldError`:
 	en texto se mostraría lo siguiente: `gt=0`, o `lt=0`, según lo que
 	corresponda.
 
-	Tanto como `f.ActualTag` y `f.Param()` se guardan como valores en el
+	Tanto como `f.ActualTag()` y `f.Param()` se guardan como valores en el
 	mapa.
 
 - `f.Field()`: obtiene el atributo en el que no se pasó la validación,
@@ -257,8 +257,6 @@ type ValidationMessages map[string]string
 ```
 Entonce, lugar de usar el mapa, se puede usar el tipo 
 ValidationMessages.
-
-
 
 ### Fuentes
 
