@@ -6,7 +6,7 @@ tags: ["node", "npm", "javascript"]
 categories: ["Node"]
 description: "Inicializar un proyecto con NPM, el uso de package.json
 y los elementos recomendados para un desarrollo colaborativo de calidad,
-como el uso de _linters_ y formateadores de código, así como su
+como el uso de linters y formateadores de código, así como su
 comprobación del código fuente antes de subir al repositorio git."
 draft: false
 ---
