@@ -379,7 +379,7 @@ forma asistida adherida a las reglas definidas.
 
 [Sección conventional commits](https://carlosazaustre.es/conventional-commits)
 
-[Código fuente del proyecto](#)
+[Código fuente del proyecto](https://github.com/zepyrshut/npm-init-js)
 
 ### Datos técnicos
 
