@@ -19,38 +19,37 @@ draft: false
 > receptores de función.
 
 En la primera parte se dio una [introducción a las interfaces en Go](/posts/2023/03/interfaces-en-go-i-introducción/), 
-en esta segunda parte se va a ver las implementaciones de las interfaz
+en esta segunda parte se va a ver las implementaciones de la interfaz
 `Unmarshaler` de la librería estándar.
 
-En la librería estándar de Go hay muchas interfaces con sus 
-implementaciones por defecto, pero que también da la posibilidad de 
+En la librería estándar de Go una serie interfaces con sus 
+implementaciones por defecto, pero que también dan la posibilidad de 
 crear cualquier implementación personalizada para adaptar a las
-necesidades del proyecto. 
+necesidades del proyecto.
 
-Las implementaciones por defecto de la interfaz lo que hacen es
-deserializar los tipos de datos de Go a JSON y viceversa a su tipo 
-correcto.
+Las implementaciones por defecto de la interfaz lo que hacen es hacer
+una deserialización de los datos. Desde JSON a tipo.
 
 ### ¿Por qué una implementación personalizada?
 
-`Unmarshaler` implementa el método `UnmarshalJSON([]byte) error`, la 
-implementación por defecto de este método lo que hace es deserializar 
-el tipo de dato desde JSON.
+`Unmarshaler` tiene un único método `UnmarshalJSON([]byte) error`, la 
+implementación por defecto de este método lo que hace es deserializar
+desde JSON al tipo.
 
 La necesidad de hacer una implementación personalizada de estas 
-interfaces surgen de la necesidad de controlar el formato y los tipos al
-transferir entre capas.
+interfaces surgen de la necesidad de controlar el formato, consistencia
+y los tipos al transferir entre capas.
 
 #### No siempre es necesario hacerlo...
 
-Hacer una implementación de estas interfaces no siempre es la mejor
-opción, es importante analizar y comprender el entorno por el que se
-mueve el código fuente y hacer un equilibrio entre rendimiento y
-mantenibilidad de código. Pues hacer las implementaciones de estas
-interfaces implica una sobrecarga en memoria y procesador, haciendo la
-ejecución más lenta, incluso bajando a la mitad, pero trae otras
-ventajas que puede compensar. Si fuese analista, me ganaría la vida 
-diciendo _depende..._, bromas aparte, analicemos los casos:
+Hacer una implementación de estas interfaces tiene un precio, es 
+importante analizar y comprender el entorno por el que se mueve el 
+código fuente y hacer un equilibrio entre rendimiento y mantenibilidad 
+de código. Pues hacer las implementaciones de estas interfaces implica 
+una sobrecarga en memoria y procesador, haciendo la ejecución más lenta,
+incluso bajando a la mitad, pero trae otras ventajas que puede 
+compensar. Si fuese analista, me ganaría la vida diciendo _depende..._, 
+bromas aparte, analicemos los casos:
 
 1. Importancia en la limpieza y mantenibilidad del código, si se
 considera muy importante hacer un código limpio y fácil de mantener,
@@ -68,10 +67,9 @@ nulos.
 4. Estructura que no corresponde al tipo estructurado, esto sería
 similar a si se hiciese un _builder_, donde se recibe una estructura
 concreta y se requiera transformar a otra estructura diferente 
-preservando los datos o viceversa, incluso con capacidades de unir
-varios tipos en un solo formato _JSON_.
+preservando los datos.
 
-### Caso 1: La pesadilla de las fechas
+### La pesadilla de las fechas
 
 Se sabe que el tipo `time.Time` de Go es una fecha que cumple con el
 estándar [RFC3339](https://www.rfc-editor.org/rfc/rfc3339), que viene a 
@@ -79,9 +77,10 @@ ser de la siguiente manera: `2006-01-02 15:04:05 +0100 CET`, también
 puede venir de otra forma, pero lo importante es que cumple con el 
 estándar.
 
-Sin embargo, desde un JSON puede venir la fecha por un lado y la hora 
-por otro, fechas en formato `dd/MM/yyyy` o en `yyyy/MM/dd`,  puede venir
-en un sinfín de formatos y es importante tener esto bien controlado.
+Sin embargo, desde un JSON puede venir la fecha, por un lado, y la hora 
+por otro, fechas en formato `dd/MM/yyyy` o en `yyyy/MM/dd`, puede venir
+en un sinfín de formatos, todos estos formatos deben ser controlados y
+transformados a un formato estándar.
 
 Dado el tipo:
 
@@ -130,34 +129,11 @@ func (p *People) UnmarshalJSON(data []byte) error {
 	p.DateTime, err = DatesParser(aux.Date, aux.Time)
 	return nil
 }
-
-// Esta función proporciona mecanismos para manejar datos vacíos en el
-// JSON.
-func DatesParser(dateStr string, timeStr string) (time.Time, error) {
-	var dateString string
-	if dateStr == "" {
-		dateString = "01/01/0001"
-	} else {
-		dateString = dateStr
-	}
-
-	var timeString string
-	if timeStr == "" {
-		timeString = "00:00"
-	} else {
-		timeString = timeStr
-	}
-
-	_, err := time.Parse("02/01/2006", dateString)
-	if err != nil {
-		return time.Time{}, err
-	}
-
-	dateTimeString := fmt.Sprintf("%s %s", dateString, timeString)
-	return time.Parse("02/01/2006 15:04", dateTimeString)
-}
-
 ```
+
+> La función DatesParser es una función que se encarga de transformar
+> la fecha y hora en un tipo `time.Time`, además de controlar también
+> los campos vacíos o incorrectos. [El código de la función](https://github.com/zepyrshut/unmarshaler-interface/blob/35208e9d9e909eaeea344daf8650c46cc8d066e2/datesnightmare.go#L38)
 
 Por partes:
 
