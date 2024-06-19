@@ -8,7 +8,7 @@ description: "Desarrolladores y unos pocos analistas desconocen el
 potencial que tiene el uso de un motor de plantillas en lugar de un framework
 front-end completo. Te quitas el mayor problema de un plumazo: añadir más
 dependencias al desarrollo."
-draft: true
+draft: false
 ---
 
 ### Preámbulo
