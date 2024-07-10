@@ -59,6 +59,8 @@ plantilla dada. Un ejemplo:
 Similar a la interpolación de variables en cualquier _framework front-end_,
 ¿verdad?, de hecho, guardan muchas similitudes.
 
+[Ver código fuente](https://github.com/zepyrshut/go-template-engine/tree/4be9a051fcb057c01e50d983b1bc0f127c41c85b)
+
 ### ¿Entonces, diferencias?
 
 La principal: la forma de obtener y representar los datos. La secundaria: la
@@ -98,4 +100,14 @@ Si el cliente pide una aplicación para su tienda _online_, con su panel de
 administración, gestión el catálogo, personalizada y desde cero, quizás encaje
 mejor el uso de un _framework front-end_.
 
+### Fuentes
+
+[html/template](https://pkg.go.dev/html/template)
+
+[Código fuente del proyecto](https://github.com/zepyrshut/go-template-engine)
+
+### Datos técnicos
+
+- **Entorno de desarrollo:** VSCode 1.91.0
+- **Go:** go1.22.4 windows/amd64
 

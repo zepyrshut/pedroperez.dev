@@ -44,6 +44,11 @@ enableGitInfo = true
   name       = "Sobre mí"
   url        = "/about"
 
+[[menu.main]]
+  identifier = "porfolio"
+  name       = "Portafolio"
+  url        = "/portfolio"
+
 [[params.social]]
   name = "github"
   url  = "https://github.com/zepyrshut"
