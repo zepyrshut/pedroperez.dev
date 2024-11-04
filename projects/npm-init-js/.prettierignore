@@ -1,0 +1,5 @@
+*.js
+*.cjs
+build/
+coverage/
+node_modules/
